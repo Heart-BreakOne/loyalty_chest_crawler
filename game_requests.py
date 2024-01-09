@@ -65,7 +65,7 @@ def get_live_captains():
         if response.json()["data"]["captains"] == []:
             break
 
-        time.sleep(0.3)
+        time.sleep(0.2)
 
 
     captains_data_list = [entry["data"]["captains"] for entry in live_captains_list]
@@ -95,7 +95,7 @@ def get_special_chests(campaign_captains):
         
         requests.get(add_raid_url, headers=headers)
         
-        time.sleep(0.3)
+        time.sleep(0.2)
         # Get raid info
         get_raid_url = (constants.game_url
                         + "?cn=getActiveRaidsByUser&clientVersion="
@@ -153,6 +153,6 @@ def leave_raid(captain_id, data_version, version, headers):
     
     requests.get(leave_raid_url, headers=headers)
     
-    time.sleep(0.3)
+    time.sleep(0.2)
 
     pass
