@@ -15,8 +15,8 @@ def run():
         get_special_chests(campaign_captains)
         
         send_message_to_discord("Completed cycle. Sleeping for 3 minutes.")
-        print("Completed cycle. Sleeping for 3 minutes.")
-        time.sleep(180)
+        print("Completed cycle. Sleeping for 1 minute.")
+        time.sleep(60)
 
 if __name__ == "__main__":
     run()
