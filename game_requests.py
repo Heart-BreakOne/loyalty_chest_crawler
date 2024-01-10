@@ -52,7 +52,7 @@ def get_live_captains():
             constants.game_url
             + "?cn=getCaptainsForSearch&isPlayingS=desc&isLiveS=desc&page="
             + str(i)
-            + "&format=normalized&seed=270&resultsPerPage=10&filters={%22favorite%22:false,%22isPlaying%22:1,%22ambassadors%22:%22false%22}&clientVersion="
+            + "&format=normalized&seed=270&resultsPerPage=30&filters={%22favorite%22:false,%22isPlaying%22:1,%22ambassadors%22:%22false%22}&clientVersion="
             + version
             + "&clientPlatform=WebGL&gameDataVersion="
             + data_version
@@ -62,7 +62,7 @@ def get_live_captains():
         response = requests.get(url, headers=get_headers())
 
         live_captains_list.append(response.json())
-        if response.json()["data"]["captains"] == []:
+        if response.json()["data"] is None or response.json()["data"]["captains"] == []:
             break
 
         time.sleep(0.2)
@@ -72,6 +72,8 @@ def get_live_captains():
     merged_data = [
         captain for captains_data in captains_data_list for captain in captains_data
     ]
+    tuples = {tuple(item.items()) for item in merged_data}
+    merged_data = [dict(t) for t in tuples]
     return merged_data
 
 
@@ -103,6 +105,9 @@ def get_special_chests(campaign_captains):
                         + data_version
                         + "&command=getActiveRaidsByUser&isCaptain=0")
         raid = requests.get(get_raid_url, headers=headers).json()["data"]
+        if len(raid) == 0:
+            leave_raid(captain_id, data_version, version, headers)
+            continue
         captain_name = raid[0]["twitchDisplayName"]
         captain_id = raid[0]["userId"]
         map_node = raid[0]["nodeId"]

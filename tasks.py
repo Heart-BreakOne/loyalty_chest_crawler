@@ -6,7 +6,6 @@
 import datetime, json, time, requests
 import private_constants
 
-
 def open_file():
     with open('loyalty_chests.json', 'r') as file:
         data = json.load(file)
@@ -46,7 +45,8 @@ def post_to_discord(captain_name, chest_type, time_remaining):
     current_time = datetime.datetime.now().strftime('%H:%M')
     post_string = f"<t:{epoch_time}:t> - Captain: {captain_name} - {chest_name} - Time remaining: {time_remaining}"
     print(f"{current_time}: Captain: {captain_name} - {chest_name} - Time remaining: {time_remaining}")
-    send_message_to_discord(post_string)
+    if private_constants.discord is True:
+        send_message_to_discord(post_string)
     
 def send_message_to_discord(post_string):
     data = {
@@ -57,4 +57,3 @@ def send_message_to_discord(post_string):
     }
     
     requests.post(private_constants.webhook, data=json.dumps(data), headers=headers)
-    
