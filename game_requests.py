@@ -27,9 +27,8 @@ def check_url():
                 for node in map_nodes:
                     node_str = str(node)
                     node = map_nodes[node]
-                    if "boss" in node['ChestType'] or "boosted" in node['ChestType']:
-                        new_node = {'ChestType': node['ChestType']}
-                        new_map_nodes[node_str] = new_node
+                    new_node = {'ChestType': node['ChestType']}
+                    new_map_nodes[node_str] = new_node
                 new_loyalty_chests = {"url": new_url, "MapNodes": new_map_nodes}
                 new_string = str(new_loyalty_chests)
                 new_string = new_string.replace("'", '"')
@@ -129,25 +128,28 @@ def get_special_chests(campaign_captains):
         captain_id = raid[0]["userId"]
         map_node = raid[0]["nodeId"]
         creation_date = raid[0]["creationDate"]
+        type = raid[0]["type"]
         
         if creation_date is None:
             leave_raid(captain_id, data_version, version, headers)
             continue
          
         # Check raid age
-        utc_now = datetime.utcnow()
-        creation_date = datetime.strptime(creation_date, '%Y-%m-%d %H:%M:%S')
-        time_difference = utc_now - creation_date
-        if time_difference > timedelta(minutes=30):
-            leave_raid(captain_id, data_version, version, headers)
-            continue
+        if type == '1':
+            utc_now = datetime.utcnow()
+            creation_date = datetime.strptime(creation_date, '%Y-%m-%d %H:%M:%S')
+            time_difference = utc_now - creation_date
+            if time_difference > timedelta(minutes=30):
+                leave_raid(captain_id, data_version, version, headers)
+                continue
         
-        # Get time remaining
-        time_remaining_timedelta = timedelta(minutes=30) - (utc_now - creation_date)
-        minutes_remaining = time_remaining_timedelta.seconds // 60
-        seconds_remaining = time_remaining_timedelta.seconds % 60
-        time_remaining_str = f"{minutes_remaining:02}:{seconds_remaining:02}"
-        
+            # Get time remaining
+            time_remaining_timedelta = timedelta(minutes=30) - (utc_now - creation_date)
+            minutes_remaining = time_remaining_timedelta.seconds // 60
+            seconds_remaining = time_remaining_timedelta.seconds % 60
+            time_remaining_str = f"{minutes_remaining:02}:{seconds_remaining:02}"
+        else:
+            time_remaining_str = "xx:xx"
         
         
         loyalty_chests = open_file()["MapNodes"]
