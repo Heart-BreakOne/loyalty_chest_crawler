@@ -1,4 +1,8 @@
-discord = False
+
+# Your stream raiders credentials
 user_id = "" #ex "12345678v"
-webhook = "https://discord.com/api/webhooks/"
 token = "" #ex "12345678%xxxxxxxxxxxxx"
+
+# Your webhook url here
+discord = False
+webhook = "https://discord.com/api/webhooks/"

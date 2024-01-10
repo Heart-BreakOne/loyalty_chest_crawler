@@ -18,7 +18,25 @@ def check_url():
         new_url = response_json["info"]["dataPath"]
         if new_url != local_url:
             # Fetch maps from the new url and update the file
-            print("Update chests")
+            print("Updating chests")
+            map_nodes = requests.get(new_url).json()["sheets"]["MapNodes"]
+            if map_nodes is None or len(map_nodes) == 0:
+                print("Failed to update map nodes.")
+            else:
+                new_map_nodes = {}
+                for node in map_nodes:
+                    node_str = str(node)
+                    node = map_nodes[node]
+                    if "boss" in node['ChestType'] or "boosted" in node['ChestType']:
+                        new_node = {'ChestType': node['ChestType']}
+                        new_map_nodes[node_str] = new_node
+                new_loyalty_chests = {"url": new_url, "MapNodes": new_map_nodes}
+                new_string = str(new_loyalty_chests)
+                new_string = new_string.replace("'", '"')
+                with open('loyalty_chests.json', 'w') as file:
+                    file.write(new_string)
+                    print("Updated chests")
+            
         else:
             print("Chests are up to date")
     
@@ -106,7 +124,6 @@ def get_special_chests(campaign_captains):
                         + "&command=getActiveRaidsByUser&isCaptain=0")
         raid = requests.get(get_raid_url, headers=headers).json()["data"]
         if len(raid) == 0:
-            leave_raid(captain_id, data_version, version, headers)
             continue
         captain_name = raid[0]["twitchDisplayName"]
         captain_id = raid[0]["userId"]

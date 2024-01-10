@@ -1,4 +1,5 @@
 # Stream Raiders Loyalty chest crawler written in Python
-## Post loyalty chest type, captain name and time remaining to a discord webhook
+## Print the loyalty chest type, captain name and time remaining or post to discord webhook
 
-Rename ```.private_constants.py``` by removing the leading dot ```private_constants.py``` and fill it with your credentials
+The crawler needs the first first slot available.<br>
+Rename ```.private_constants.py``` to ```private_constants.py``` by removing the leading dot and fill it with your credentials
