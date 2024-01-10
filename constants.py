@@ -8,9 +8,9 @@ chest_strings = [
     {"internal": "chestboostedskin", "name": "Loyalty Skin Chest", "print": True},
     {"internal": "chestboostedbeastlands", "name": "Beastlands Chest", "print": True},
     {"internal": "chestboostedskinalternate", "name": "Skin Alternate Chest", "print": True},
-    {"internal": "bonechest", "name": "PVP Battle", "print": False},
+    {"internal": "bonechest", "name": "PVP Battle", "print": True},
     {"internal": "dungeonchest", "name": "Dungeons battle", "print": True},
     {"internal": "chestgold", "name": "Gold Chest", "print": False},
-    {"internal": "chestsilver", "name": "Silver Chest", "print": True},
+    {"internal": "chestsilver", "name": "Silver Chest", "print": False},
     {"internal": "chestbronze", "name": "Bronze Chest", "print": False},
 ]
