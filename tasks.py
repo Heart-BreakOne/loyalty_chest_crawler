@@ -4,8 +4,8 @@
 # Filter captains on active placement campaign 
 
 import datetime, json, time, requests
-import private_constants
 import constants
+import webhook
 
 def open_file():
     with open('loyalty_chests.json', 'r') as file:
@@ -39,7 +39,7 @@ def post_to_discord(captain_name, chest_type, time_remaining):
             current_time = datetime.datetime.now().strftime('%H:%M')
             post_string = f"<t:{epoch_time}:t> - Captain: {captain_name} - {chest_name} - Time remaining: {time_remaining}"
             print(f"{current_time}: Captain: {captain_name} - {chest_name} - Time remaining: {time_remaining}")
-            if private_constants.discord is True:
+            if webhook.discord is True:
                 send_message_to_discord(post_string)
             break
     
@@ -51,4 +51,4 @@ def send_message_to_discord(post_string):
         "Content-Type": "application/json"
     }
     
-    requests.post(private_constants.webhook, data=json.dumps(data), headers=headers)
+    requests.post(webhook.webhook, data=json.dumps(data), headers=headers)

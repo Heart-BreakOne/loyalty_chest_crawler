@@ -42,7 +42,7 @@ def check_url():
 
 
 def get_headers():
-    headers = {"Cookie": "ACCESS_INFO=" + private_constants.token, "User-Agent": constants.user_agent}
+    headers = {"Cookie": "ACCESS_INFO=" + private_constants.ACCESS_INFO, "User-Agent": constants.user_agent}
     return headers
 
 

@@ -1,14 +1,13 @@
 
-
 import time
-import private_constants
+import webhook
 from game_requests import check_url, get_live_captains, get_special_chests
 from tasks import filter_captains, send_message_to_discord
 
 def run():
     
     while True:
-        if private_constants.discord is True:
+        if webhook.discord is True:
             send_message_to_discord("Beginning cycle.")
         print("Beginning cycle.")
         check_url()
@@ -16,7 +15,7 @@ def run():
         campaign_captains = filter_captains(list_of_captains)
         get_special_chests(campaign_captains)
         
-        if private_constants.discord is True:
+        if webhook.discord is True:
             send_message_to_discord("Completed cycle. Sleeping for 3 minutes.")
         
         print("Completed cycle. Sleeping for 1 minute.")

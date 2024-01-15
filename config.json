@@ -1,0 +1,21 @@
+{
+    "version": "0.0.1",
+    "name": "PyChestCrawler",
+    "author": "HeartBreak-One",
+    "description": "SR Chest crawler written in Python",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Heart-BreakOne/loyalty_chest_crawler"
+    },
+    "keywords": [
+        "Python",
+        "CLI",
+        "SR Tool",
+        "SR Bot",
+        "Twitch",
+        "Web crawler",
+        "PyQt",
+        "PyQtWebEngine"
+    ],
+    "license": "MIT"
+}
