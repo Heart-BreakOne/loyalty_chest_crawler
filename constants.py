@@ -2,6 +2,8 @@ user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 game_url = "https://www.streamraiders.com/api/game/"
 json_path = "loyalty_chests.json"
 chest_strings = [
+    {"internal": "chestbosssuper", "name": "Loyalty Super Boss Chest", "print": True},
+    {"internal": "chestboss", "name": "Loyalty Boss Chest", "print": True},
     {"internal": "chestboostedgold", "name": "Loyalty Gold Chest", "print": True},
     {"internal": "chestboostedtoken", "name": "Loyalty Token Chest", "print": True},
     {"internal": "chestboostedscroll", "name": "Loyalty Scroll Chest", "print": True},
