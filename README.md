@@ -1,5 +1,12 @@
 # Stream Raiders Loyalty chest crawler written in Python
-## Print the loyalty chest type, captain name and time remaining or post to discord webhook
+
+## Add bot to your server:
+* Add the bot through this link: [![Static Badge](https://img.shields.io/badge/Discord-Discord?style=for-the-badge&logo=discord&color=%23C5CAE9)]([discordapp.com/users/heartbreakone](https://discord.com/api/oauth2/authorize?client_id=1202283345241972796&permissions=2048&scope=bot))
+* Create a channel called "loyalty_chests";
+* Give the bot permission to send messages on the loyalty_chests channel;
+* You're all set.
+
+## Use locally without having to set up discord or post to your own discord webhook:
 
 It can also find offline captains doing good chests.<br>
 The crawler needs the first first slot available.<br>
