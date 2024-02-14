@@ -1,6 +1,12 @@
 # Stream Raiders Loyalty chest crawler written in Python
 
 ## Add bot to your server:
+
+<p align="left">
+  <img src="https://i.imgur.com/jDPJiKy.png" alt="popup.html" height="75%" width="60%" hspace="30"/>
+</p>
+
+
 * Add the bot through this link: [![Static Badge](https://img.shields.io/badge/Discord-Discord?style=for-the-badge&logo=discord&color=%23C5CAE9)](https://discord.com/api/oauth2/authorize?client_id=1202283345241972796&permissions=2048&scope=bot)
 * Create a channel called "loyalty_chests";
 * Give the bot permission to send messages on the loyalty_chests channel;
