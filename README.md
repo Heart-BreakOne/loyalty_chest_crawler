@@ -3,7 +3,7 @@
 ## Add the bot to your server:
 
 <p align="left">
-  <img src="https://i.imgur.com/jDPJiKy.png" alt="popup.html" height="75%" width="60%" hspace="30"/>
+  <img src="https://i.imgur.com/5bHJtdf.png" alt="popup.html" height="75%" width="60%" hspace="30"/>
 </p>
 
 
