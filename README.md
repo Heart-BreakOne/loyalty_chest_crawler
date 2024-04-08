@@ -1,20 +1,5 @@
 # Stream Raiders Loyalty chest crawler written in Python
 
-## Add the bot to your server:
-
-<p align="left">
-  <img src="https://i.imgur.com/5bHJtdf.png" alt="popup.html" height="75%" width="60%" hspace="30"/>
-</p>
-
-
-* Add the bot through this link: [![Static Badge](https://img.shields.io/badge/Discord-Discord?style=for-the-badge&logo=discord&color=%23C5CAE9)](https://discord.com/api/oauth2/authorize?client_id=1202283345241972796&permissions=2048&scope=bot)
-* Create a channel called "loyalty_chests";
-* Give the bot permission to send messages on the loyalty_chests channel;
-* Give the bot permission to use external emotes
-* Optional: Give the bot permission to manage the channel and view message history so it can delete expired battles.
-* The bot uses roles to determine what to send, the roles are: **bronze** (bronze chest), **silver** (silver chest), **gold** (gold chest), **lgold** (loyalty gold skin), **lskin** (loyalty skin chest), **ltoken** (loyalty skin chest), **lscroll** (loyalty scroll chest), **boss** (boss chest), **superboss** (super boss chest), **pvp** (duels and clash), **dungeon**, **unknown** (Alternate and Beastlands chest in case they ever return). These roles are just flags, they don't require any permissions, assign them to fit your requirements.
-* You're all set.
-
 ## Use locally without having to set up discord or post to your own discord webhook:
 
 It can also find offline captains doing good chests.<br>
